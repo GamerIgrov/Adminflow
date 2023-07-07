@@ -1,0 +1,77 @@
+uniform shader iChunk;
+uniform float2 iChunkSize;
+
+const float THRESHOLD_AREA = 800 * 600;
+const float MIN_AREA = 400 * 100;
+const float MIN_STRIP = 20;
+const float MARGIN = 1;
+
+half3 pixel(const int x, const int y, in half2 xy)
+{
+	return iChunk.eval(xy + half2(x, y)).rgb;
+}  
+
+half3 RGX(half2 xy){
+	half3 f =
+	pixel(-1,-1, xy) *  1. +                     
+	pixel( 0,-1, xy) * -1. +                    
+	pixel( 1,-1, xy) *  1. +
+	
+	pixel(-1, 0, xy) * -1. +                    
+	pixel( 0, 0, xy) * -2. +                     
+	pixel( 1, 0, xy) * -1. +                     
+	
+	pixel(-1, 1, xy) *  1. +                     
+	pixel( 0, 1, xy) * -1. +                     
+	pixel( 1, 1, xy) *  1.
+	;
+	return f / -2;
+}
+
+half3 RGXMore(half2 xy){
+	half3 f =
+	pixel(-1,-1, xy) *  1. +                     
+	pixel( 0,-1, xy) * -1. +                    
+	pixel( 1,-1, xy) *  1. +
+	
+	pixel(-1, 0, xy) * -1. +                    
+	pixel( 0, 0, xy) * -1. +                     
+	pixel( 1, 0, xy) * -1. +                     
+	
+	pixel(-1, 1, xy) *  1. +                     
+	pixel( 0, 1, xy) * -1. +                     
+	pixel( 1, 1, xy) *  1. 
+	;
+	return f / -1;
+}
+
+
+half4 main(float2 xy)
+{
+	half4 color = iChunk.eval(xy);
+	
+	if (color.a < 1) {
+		return color;
+	}
+	
+	if (iChunkSize.x * iChunkSize.y < MIN_AREA) {
+		return color;
+	}
+
+	if (iChunkSize.y < MIN_STRIP || iChunkSize.x < MIN_STRIP) {
+		return color;
+	}
+
+	if (xy.x < MARGIN || xy.x > (iChunkSize.x - MARGIN) ||
+	    xy.y < MARGIN || xy.y > (iChunkSize.y - MARGIN)) {
+    	return color;    
+    }
+	
+	if (iChunkSize.x * iChunkSize.y > THRESHOLD_AREA) {
+		color = half4(RGXMore(xy), 1);
+	} else {
+		color = half4(RGX(xy), 1);
+	}
+
+	return color;
+}
