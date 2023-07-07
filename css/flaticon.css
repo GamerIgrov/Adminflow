@@ -1,0 +1,49 @@
+@font-face { font-family: Flaticon; src: url("../fonts/Flaticon.woff2") format("woff2"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face { font-family: Flaticon; src: ; }
+}
+[class^="flaticon-"]::before, [class*=" flaticon-"]::before, [class^="flaticon-"]::after, [class*=" flaticon-"]::after { font-family: Flaticon; font-style: normal; }
+.flaticon-cancel::before { content: ""; }
+.flaticon-search::before { content: ""; }
+.flaticon-blueprint::before { content: ""; }
+.flaticon-update::before { content: ""; }
+.flaticon-security::before { content: ""; }
+.flaticon-clock::before { content: ""; }
+.flaticon-it::before { content: ""; }
+.flaticon-setting::before { content: ""; }
+.flaticon-promotion::before { content: ""; }
+.flaticon-cellphone::before { content: ""; }
+.flaticon-shopping-cart::before { content: ""; }
+.flaticon-blog::before { content: ""; }
+.flaticon-devices::before { content: ""; }
+.flaticon-play::before { content: ""; }
+.flaticon-shared-folder::before { content: ""; }
+.flaticon-quality::before { content: ""; }
+.flaticon-target::before { content: ""; }
+.flaticon-left-quotes-sign::before { content: ""; }
+.flaticon-right::before { content: ""; }
+.flaticon-left::before { content: ""; }
+.flaticon-facebook::before { content: ""; }
+.flaticon-twitter::before { content: ""; }
+.flaticon-pinterest::before { content: ""; }
+.flaticon-instagram::before { content: ""; }
+.flaticon-phone-call::before { content: ""; }
+.flaticon-envelope::before { content: ""; }
+.flaticon-pin::before { content: ""; }
+.flaticon-optimize::before { content: ""; }
+.flaticon-internet::before { content: ""; }
+.flaticon-cloud-computing::before { content: ""; }
+.flaticon-edit::before { content: ""; }
+.flaticon-thinking::before { content: ""; }
+.flaticon-software::before { content: ""; }
+.flaticon-analysis::before { content: ""; }
+.flaticon-trophy::before { content: ""; }
+.flaticon-technical-support::before { content: ""; }
+.flaticon-happy::before { content: ""; }
+.flaticon-check::before { content: ""; }
+.flaticon-checked::before { content: ""; }
+.flaticon-laptop::before { content: ""; }
+.flaticon-project-management::before { content: ""; }
+.flaticon-report::before { content: ""; }
+.flaticon-data::before { content: ""; }
+.flaticon-tick::before { content: ""; }
